@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .kitty-img {
+            width: 200px;
+            height: auto;
+        }
+        .gif {
+            width: 250px;
+            height: auto;
+            margin-top: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .no {
+            background-color: #d3d3d3;
+            color: black;
+        }
+        .popup {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff69b4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Mi nanita hermosa quieres ser mi San Valentín a pesar de estar lejitos? 💖</h1>
+        <img src="https://media.tenor.com/Bn88VELdNI8AAAAi/peach-goma.gif" alt="Peach Goma Gif 1" class="gif">
+        <img src="https://media.tenor.com/cbEccaK9QxMAAAAi/peach-goma.gif" alt="Peach Goma Gif 2" class="gif">
+        <img src="https://i.pinimg.com/originals/db/aa/c1/dbaac13f6278b91a15e480752b8a7242.gif" alt="Gif romántico" class="gif">
+        <div class="buttons">
+            <button class="yes" id="yes" onclick="aceptar()">Sí 💕</button>
+            <button class="no" id="no" onclick="insistir()">No 😢</button>
+        </div>
+    </div>
+    
+    <script>
+        let intentos = 0;
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        
+        function insistir() {
+            intentos++;
+            let mensajes = [
+                "¿Estás segura? 🥺", 
+                "Por favor di que sí 😭", 
+                "te estoy viendo adriana peña 💔", 
+                "Prometo hacerte muy feliz 💖", 
+                "Te daré muchos abrazos y hand roll💕", 
+                "No puedes decir que no a tu esposo hermoso🐱💞", 
+                "Vamos, es San Valentín! 💘"
+            ];
+            
+            let popup = document.createElement("div");
+            popup.classList.add("popup");
+            popup.innerText = mensajes[Math.min(intentos - 1, mensajes.length - 1)];
+            document.body.appendChild(popup);
+            
+            setTimeout(() => {
+                popup.remove();
+            }, 2000);
+            
+            if (intentos >= mensajes.length) {
+                noButton.style.display = "none";
+            }
+            
+            yesButton.style.fontSize = (18 + intentos * 5) + "px";
+        }
+        
+        function aceptar() {
+            alert("MUY BIEMMM MI AMOR ESO PENSÉ! 💖😍 Espero que la pasemos muy bien aunque estemos lejitos en nuestro primer San Valentín 💕");
+        }
+    </script>
+</body>
+</html>
